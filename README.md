@@ -52,6 +52,19 @@ Product Details is the Application which implements the solution for
 
 • Git
 
+# Maven dependencies used:
+spring-boot-starter-data-mongodb, 
+spring-boot-starter-jta-narayan, 
+spring-boot-starter-web, 
+spring-boot-starter-test, 
+spring-boot-starter-actuator, 
+spring-boot-devtools, 
+spring-data-commons, 
+spring-cloud-starter-feign, 
+springfox-swagger2, 
+springfox-swagger-ui.
+
+
 # Setup instructions:
 Install Java 1.8
 
@@ -71,5 +84,9 @@ Import the project into STS:
 • Open File -ProductDetailsApplication
 • Run as Java application
 
+#Access url:
+http://localhost:8081/products
+
+http://localhost:8081/swagger-ui.html
 
 
