@@ -53,10 +53,14 @@ Product Details is the Application which implements the solution for
 • Git
 
 # Setup instructions:
-Java 1.8
+Install Java 1.8
+
 Install Spring Tool Suite 
+
 Install Mongo DB
+
 Install Maven 
+
 Github: Download project from the following git repository https://github.com/naveenkankanala9/productdetails
 
 Clone the git project from git-bash or command prompt (or) download the project as a zipfile
