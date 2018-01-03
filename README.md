@@ -64,6 +64,8 @@ spring-cloud-starter-feign,
 springfox-swagger2, 
 springfox-swagger-ui.
 
+Reference: https://mvnrepository.com/
+
 
 # Setup instructions:
 Install Java 1.8
