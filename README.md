@@ -2,6 +2,7 @@
 Description of the product details of myRetail company
 
 # Target Audience
+• Developer/Tester
 
 
 # Problem: myRetail RESTful service
@@ -37,13 +38,18 @@ Product Details is the Application which implements the solution for
 
 # Technology Stack:
 • Spring Boot
+
 • Maven
+
 • MongoDB
+
 • JUnit/Mokito
 
 # Tools Used
 • Spring Tool Suite
+
 • Postman
+
 • Git
 
 # Setup instructions:
