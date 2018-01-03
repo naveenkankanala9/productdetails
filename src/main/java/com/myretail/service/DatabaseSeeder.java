@@ -1,6 +1,5 @@
 package com.myretail.service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -9,15 +8,10 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.myretail.entity.Product;
-import com.myretail.entity.Role;
-import com.myretail.entity.User;
 import com.myretail.repository.ProductRepository;
-import com.myretail.repository.RoleRepository;
-import com.myretail.repository.UserRepository;
 
 /**
  * @author navee
@@ -28,15 +22,6 @@ public class DatabaseSeeder {
 
 	@Autowired
 	private ProductRepository productRepository;
-	
-	@Autowired
-	private UserRepository userRepository;
-	
-	@Autowired
-	private RoleRepository roleRepostory;
-	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
 
 	/**
 	 * Default constructor.
@@ -51,7 +36,6 @@ public class DatabaseSeeder {
 	@PostConstruct
 	public void init() {
 		addProduct();
-		addUserAccount();
 	}
 
 	/**
@@ -85,50 +69,6 @@ public class DatabaseSeeder {
 			// Add product List in db.
 			List<Product> products = Arrays.asList(product1, product2, product3, product4);
 			this.productRepository.save(products);
-		}
-	}
-	
-	/**
-	 * To add the user accounts with Roles.
-	 */
-	private void addUserAccount() {
-		if(userRepository != null) {
-			// delete previous data
-			this.roleRepostory.deleteAll();
-			
-			Role roleUser = new Role("1","USER");
-			roleRepostory.save(roleUser);
-			
-			Role roleAdmin = new Role("2","ADMIN");
-			roleRepostory.save(roleAdmin);
-			
-			
-			//*********Add user and admin role for naveen*****************************
-			List<Role> roles2 = new ArrayList<>();
-			roles2.add(roleUser);
-			roles2.add(roleAdmin);
-			
-			List<User> accounts = new ArrayList<>();
-			
-			User account1 = new User("1","admin",passwordEncoder.encode("admin"),roles2);
-			accounts.add(account1);
-			//*******************************************
-			
-			//*********Add only user role**********************************
-			List<Role> roles1 = new ArrayList<>();
-			roles1.add(roleUser);
-			User account2 = new User("2","normaluser",passwordEncoder.encode("normalUser"),roles1);
-			accounts.add(account2);
-			
-			User account3 = new User("3","dbuser",passwordEncoder.encode("dbuser"),roles1);
-			accounts.add(account3);
-			//*******************************************
-			
-			// delete previous data
-			this.userRepository.deleteAll();
-			
-			//Save 
-			this.userRepository.save(accounts);
 		}
 	}
 }
